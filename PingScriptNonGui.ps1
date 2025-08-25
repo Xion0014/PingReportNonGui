@@ -1,5 +1,6 @@
 # PowerShell script to ping store devices and log to a single CSV file.
-# Program made by Caleb Flynn from Hypercare
+# Program made by Xion
+#CONFIDENTIALITY NOTICE: Proprietary/Confidential This code Belongs to CGI inc, circlek incoporated
 
 # Path to your CSV
 $csvBaseName = "StoreDevices"
@@ -86,4 +87,5 @@ while ($true) {
 }
 
 Write-Host "All results saved to: $globalCsvPath" -ForegroundColor Cyan
+
 Write-Host "Script has ended." -ForegroundColor Cyan
