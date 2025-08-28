@@ -1,6 +1,6 @@
 # PowerShell script to ping store devices and log to a single CSV file.
 # Program made by Xion
-#CONFIDENTIALITY NOTICE: Proprietary/Confidential This code Belongs to CGI inc, circlek incoporated
+# This code belongs to CGI INC/Circlek Incorporated
 
 # Path to your CSV
 $csvBaseName = "StoreDevices"
@@ -53,6 +53,11 @@ while ($true) {
             continue
         }
 
+        # Banner for clarity
+        Write-Host "`n======================" -ForegroundColor Blue
+        Write-Host "Pinging Store $storeNumber..." -ForegroundColor Blue
+        Write-Host "======================`n" -ForegroundColor Blue
+
         $devices = $storeRow.PSObject.Properties | Where-Object { $_.Name -ne "Store" }
         $devicesSorted = $devices | Sort-Object {
             if ($_.Value -match "\d+\.\d+\.\d+\.(\d+)$") { [int]$matches[1] } else { 999 }
@@ -87,5 +92,4 @@ while ($true) {
 }
 
 Write-Host "All results saved to: $globalCsvPath" -ForegroundColor Cyan
-
 Write-Host "Script has ended." -ForegroundColor Cyan
